@@ -21,7 +21,7 @@ const analyzeComment = (comment, callback) => {
   // GET request to server
   axios.get(API_URL)
           .then(response => {
-            const data = response.data.items;
+            const data = response.data.items[0].url;
             // Calling a callback function with data from the server
             callback(data)
           })
