@@ -21,7 +21,7 @@ const analyzeComment = (comment, callback) => {
   // GET request to server
   axios.get(API_URL)
           .then(response => {
-            const data = response.data;
+            const data = response.data.items;
             // Calling a callback function with data from the server
             callback(data)
           })
@@ -40,7 +40,7 @@ const displayResult = result => {
   resultBlockElement.classList.remove('invisible');
 
   // Setting the color of the result text depending on the response label
-  const label = result.response.items.url;
+  const label = result.url;
   const resultElement = document.getElementById('result');
   resultElement.setAttribute('class', label);
   let resultText = label;
