@@ -40,7 +40,7 @@ const displayResult = result => {
   resultBlockElement.classList.remove('invisible');
 
   // Setting the color of the result text depending on the response label
-  const label = result.url;
+  const label = result.response.items.url;
   const resultElement = document.getElementById('result');
   resultElement.setAttribute('class', label);
   let resultText = label;
