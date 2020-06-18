@@ -1,3 +1,10 @@
+function createNode(element) {
+    return document.createElement(element); // Create the type of element you pass in the parameters
+  }
+
+  function append(parent, el) {
+    return parent.appendChild(el); // Append the second parameter(element) to the first one
+  }
 // Text-Processing API Url
 const API_URL = 'https://api.vk.com/method/docs.search?access_token=aa38a866def346043b87f00936a2a206625c4b876a7bcb1f889cc6e23b19da05a491ea70d27dd23d37e39&v=5.110&q=';
 
