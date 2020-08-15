@@ -35,7 +35,7 @@ const onAnalyzeButtonClick = () => {
           return handleEmptyComment();
   }
   // Calling the API and passing the result with the displayResult as a callback function
-  return analyzeComment(commentText,resultElement);
+  return analyzeComment();
 };
 const analyzeComment = () => {
 const final_URL =
