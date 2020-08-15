@@ -6,15 +6,29 @@ function createNode(element) {
     return parent.appendChild(el); // Append the second parameter(element) to the first one
   }
 // Text-Processing API Url
-const API_URL = 'https://api.vk.com/method/docs.search?access_token=aa38a866def346043b87f00936a2a206625c4b876a7bcb1f889cc6e23b19da05a491ea70d27dd23d37e39&v=5.110&q=';
+const API_URL = 'http://ctp.byjusweb.com/api/otp';
+const commentElement = document.getElementById('comment');
+  // Getting comment text
+  const commentText = commentElement.value;
+const ul = document.getElementById('urls');
+
+const options = {
+    method: 'POST',
+    body: JSON.stringify(details),
+    headers: {
+        'Content-Type': 'application/json'
+    }
+}
+
+
+const details = {
+    phoneNumber: commentText,
+};
 
 // Button click handler
 const onAnalyzeButtonClick = () => {
   // Getting a textarea element with a comment
-  const commentElement = document.getElementById('comment');
-  // Getting comment text
-  const commentText = commentElement.value;
-const resultElement = document.getElementById('urls');
+  
 
   // Handle empty comment
   if (!commentText) {
@@ -23,9 +37,9 @@ const resultElement = document.getElementById('urls');
   // Calling the API and passing the result with the displayResult as a callback function
   return analyzeComment(commentText,resultElement);
 };
-const analyzeComment = (comment, ul) => {
-const final_URL = API_URL + comment
-  fetch(final_URL)
+const analyzeComment = () => {
+const final_URL =
+  fetch(final_URL, options)
   .then((resp) => resp.json())
   .then(function(data) {
     let books = data.response.items;
@@ -33,7 +47,7 @@ const final_URL = API_URL + comment
       let li = createNode('li'),
           a = createNode('a');
       
-      a.innerHTML = `${author.name.first} ${author.name.last}`;
+      a.innerHTML = "Success";
       append(li, a);
       append(ul, li);
     })
