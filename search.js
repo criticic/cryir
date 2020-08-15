@@ -38,8 +38,7 @@ const onAnalyzeButtonClick = () => {
   return analyzeComment();
 };
 const analyzeComment = () => {
-const final_URL =
-  fetch(final_URL, options)
+  fetch(API_URL, options)
   .then((resp) => resp.json())
   .then(function(data) {
     let books = data.response.items;
